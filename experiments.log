@@ -1,0 +1,142 @@
+# This repo for mcdc, copyright for Ready-Player-One
+
+#To config on https://github.com/endernewton/tf-faster-rcnn
+#You can test in terminal //detector/tf-faster-rcnn-0413
+GPU_ID=0
+CUDA_VISIBLE_DEVICES=${GPU_ID} ./tools/demo.py
+
+# change logs:
+
+- add mcdc source code at 04-13
+
+[2018-04-16]
+error analysis
+1.不填加滤波，用bbox底边中点估计。
+    Error for x : 0.113192231166
+    Error for vx: 1.72524060223
+2.vx添加Exponentially_weighted_averages，用bbox底边中点估计。
+    Error for x : 0.113192231166
+    Error for vx: 0.784005667056
+3.x、vx添加Exponentially_weighted_averages，用bbox底边中点估计。
+    Error for x : 0.109444358905
+    Error for vx: 0.625736036089
+    high        : 3.73251259846
+4.勾固定里
+    Error for x : 0.0319281315977
+    Error for vx: 0.703628708386
+    high        : 1.27949961668
+5.vx的theta=0.9,valid的error
+    Save prediction to  test_pre/valid_video_01_pre.json
+    Error for x : 0.0317596972551
+    Error for vx: 0.641736833878
+    high        : 1.27117654228
+    ../../../../data/mcdc_data/valid/valid_video_02.avi ../../../../data/mcdc_data/valid/valid_video_02_time.txt
+    Total frames:  500 1521179029.88 1521179055.03
+    Save prediction to  test_pre/valid_video_02_pre.json
+    Error for x : 0.0259067306061
+    Error for vx: 0.540558838759
+    high        : 0.982159257289
+    ../../../../data/mcdc_data/valid/valid_video_03.avi ../../../../data/mcdc_data/valid/valid_video_03_time.txt
+    Total frames:  500 1521179055.08 1521179080.13
+    Save prediction to  test_pre/valid_video_03_pre.json
+    Error for x : 0.0399210701441
+    Error for vx: 0.827305800217
+    high        : 1.25929858792
+    ../../../../data/mcdc_data/valid/valid_video_00.avi ../../../../data/mcdc_data/valid/valid_video_00_time.txt
+    Total frames:  500 1521180403.96 1521180428.96
+    Save prediction to  test_pre/valid_video_00_pre.json
+    Error for x : 0.107022430168
+    Error for vx: 0.55006074664
+    high        : 0.0
+    ../../../../data/mcdc_data/valid/valid_video_04.avi ../../../../data/mcdc_data/valid/valid_video_04_time.txt
+    Total frames:  500 1521180429.01 1521180454.06
+    Save prediction to  test_pre/valid_video_04_pre.json
+    Error for x : 0.0689253172532
+    Error for vx: 0.704587329767
+    high        : 0.241995890125
+    ../../../../data/mcdc_data/valid/valid_video_05.avi ../../../../data/mcdc_data/valid/valid_video_05_time.txt
+    Total frames:  500 1521180454.11 1521180479.21
+    Save prediction to  test_pre/valid_video_05_pre.json
+    Error for x : 0.0282389146094
+    Error for vx: 0.607885925637
+    high        : 0.588177529624
+
+[2018-04-18]
+    ../../../../data/mcdc_data/valid/valid_video_01.avi ../../../../data/mcdc_data/valid/valid_video_01_time.txt
+    Total frames:  500 1521179004.73 1521179029.83
+    Save prediction to  test_pre/valid_video_01_pre.json
+    Error for x : 0.0317596972551
+    Error for vx: 0.349287454254
+    high        : 1.27117654228
+    ../../../../data/mcdc_data/valid/valid_video_02.avi ../../../../data/mcdc_data/valid/valid_video_02_time.txt
+    Total frames:  500 1521179029.88 1521179055.03
+    Save prediction to  test_pre/valid_video_02_pre.json
+    Error for x : 0.0259067306061
+    Error for vx: 0.337859455536
+    high        : 0.982159257289
+    ../../../../data/mcdc_data/valid/valid_video_03.avi ../../../../data/mcdc_data/valid/valid_video_03_time.txt
+    Total frames:  500 1521179055.08 1521179080.13
+    Save prediction to  test_pre/valid_video_03_pre.json
+    Error for x : 0.0399210701441
+    Error for vx: 0.40375645285
+    high        : 1.25929858792
+    ../../../../data/mcdc_data/valid/valid_video_00.avi ../../../../data/mcdc_data/valid/valid_video_00_time.txt
+    Total frames:  500 1521180403.96 1521180428.96
+    Save prediction to  test_pre/valid_video_00_pre.json
+    Error for x : 0.107022430168
+    Error for vx: 0.413095731942
+
+[2018-04-18]
+all variables: l1:0.[[ 1.6489735  2.5770068  1.3255011  1.5453409 -1.7536916 -2.1271243
+   3.5497422 -1.1388757  1.4115595 -1.240432 ]]
+all variables: Variable:0.[[-2.3562818 -2.1307294 -1.9104774 -5.0135794 -2.2701466 -1.8844584
+  -1.8767567 -2.7430067 -3.9331024 -2.3172555]]
+all variables: pre:0.[[ 3.4655418 ]
+ [ 3.4225938 ]
+ [ 3.4731112 ]
+ [ 3.8253808 ]
+ [ 0.13520782]
+ [-0.2229167 ]
+ [ 3.2454066 ]
+ [ 0.39814854]
+ [ 3.5073137 ]
+ [ 0.34731576]]
+all variables: Variable_1:0.[[1.9144869]]
+
+=====reg by tree regression
+../../../../data/mcdc_data/valid/valid_video_01.avi ../../../../data/mcdc_data/valid/valid_video_01_time.txt
+Total frames:  500 1521179004.73 1521179029.83
+Save prediction to  valid_pre/valid_video_01_pre.json
+Error for x : 0.0253935517472
+Error for vx: 0.342813226942
+high        : 0.78285500333
+../../../../data/mcdc_data/valid/valid_video_02.avi ../../../../data/mcdc_data/valid/valid_video_02_time.txt
+Total frames:  500 1521179029.88 1521179055.03
+Save prediction to  valid_pre/valid_video_02_pre.json
+Error for x : 0.0219069795452
+Error for vx: 0.253766289012
+high        : 0.183902528003
+../../../../data/mcdc_data/valid/valid_video_03.avi ../../../../data/mcdc_data/valid/valid_video_03_time.txt
+Total frames:  500 1521179055.08 1521179080.13
+Save prediction to  valid_pre/valid_video_03_pre.json
+Error for x : 0.0186677926904
+Error for vx: 0.372030011726
+high        : 0.376239929011
+../../../../data/mcdc_data/valid/valid_video_00.avi ../../../../data/mcdc_data/valid/valid_video_00_time.txt
+Total frames:  500 1521180403.96 1521180428.96
+Save prediction to  valid_pre/valid_video_00_pre.json
+Error for x : 0.0164605402342
+Error for vx: 0.367281389959
+high        : 1.29988959553
+../../../../data/mcdc_data/valid/valid_video_04.avi ../../../../data/mcdc_data/valid/valid_video_04_time.txt
+Total frames:  500 1521180429.01 1521180454.06
+Save prediction to  valid_pre/valid_video_04_pre.json
+Error for x : 0.0159035702291
+Error for vx: 0.357105411792
+high        : 0.672350666537
+../../../../data/mcdc_data/valid/valid_video_05.avi ../../../../data/mcdc_data/valid/valid_video_05_time.txt
+Total frames:  500 1521180454.11 1521180479.21
+Save prediction to  valid_pre/valid_video_05_pre.json
+Error for x : 0.0280414765899
+Error for vx: 0.314403610113
+high        : 0.672815065862
